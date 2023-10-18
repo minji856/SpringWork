@@ -6,9 +6,10 @@
 	
 	<!-- 이 bean 태그가 이 클래스의 객체를 생성하고, 생성된 주소값을 id 에 지정 -->
 	<bean id="messageBean" class="basic05.MessageBeanImpl">
-		<!-- 생성자를 통해서 값을 주입 시켜주는 DI 형태 -->
-		<!-- 순서대로 넣을 것 같으면 index 생략가능 -->
+	<!-- <bean id="messageBean" class="basic05.MessageBeanImpl" scope="prototype"> -->
 		
+		<!-- 생성자를 통해서 값을 주입 시켜주는 DI 형태 
+				순서대로 넣을 것 같으면 index 생략가능 -->
 		<!-- 
 		<constructor-arg index="0" value="홍길동"></constructor-arg> 첫번째 인자 (String name)에 값을 넘겨줌
 		<constructor-arg index="1" value="20"></constructor-arg>
