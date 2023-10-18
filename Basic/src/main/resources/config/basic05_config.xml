@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd">
+	
+	<!-- 이 bean 태그가 이 클래스의 객체를 생성하고, 생성된 주소값을 id 에 지정 -->
+	<bean id="messageBean" class="basic05.MessageBeanImpl">
+		<!-- 생성자를 통해서 값을 주입 시켜주는 DI 형태 -->
+		<!-- 순서대로 넣을 것 같으면 index 생략가능 -->
+		
+		<!-- 
+		<constructor-arg index="0" value="홍길동"></constructor-arg> 첫번째 인자 (String name)에 값을 넘겨줌
+		<constructor-arg index="1" value="20"></constructor-arg>
+		<constructor-arg index="2" value="안녕하세요"></constructor-arg>
+		--> 
+		
+		<constructor-arg type="int" value="20"></constructor-arg>
+		<constructor-arg type="String" value="홍길동"></constructor-arg>	
+		<constructor-arg type="String" value="안녕하세요"></constructor-arg>
+		
+		<!-- setter 메서드를 이용한 주입방식 setName -->
+		<property name="name" value="임꺽정"></property>
+		<property name="age" value="30"></property>
+		<property name="greeting" value="또 만났네요..."></property>
+		
+		<!-- setter 가 여기에 생성되있으니까 여기에 작성 
+			이 클래스에 있는 setOutputter를 생성하고 있는 거고 ref="outputter"는 아래의 주소가 넘어가는거다
+				겉보기엔 이름이 같아서 헷갈릴 수 있음 -->
+		<property name="outputter" ref="outputter"></property>
+	</bean>
+	
+	<!-- 아래 클래스의 주소값을 outputter가 가지고 있다 id가 일종의 변수역할 -->
+	<bean id="outputter" class="basic05.FileOutputter">
+		<!-- 빈 프로퍼티 규칙에 의해서 setFilePath 를 소문자로 -->
+		<property name="filePath" value="c:\\temp\\out.txt"></property>
+	</bean>
+</beans>
