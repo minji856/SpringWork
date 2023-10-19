@@ -47,4 +47,13 @@ public class Member {
 	public void setRegisterDate(Date registerDate) {
 		this.registerDate = registerDate;
 	}
+	
+	public void changePassword(String oldPass, String newPass) {
+		if(!password.equals(oldPass)) {
+			System.out.println("현재 비밀번호가 맞지 않습니다.");
+			return;
+		}
+		password = newPass; // 현재 비밀번호를 새로운 비밀번호로 바꿔줌
+	}
+	
 }

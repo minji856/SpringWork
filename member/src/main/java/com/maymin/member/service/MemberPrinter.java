@@ -1,4 +1,7 @@
-package com.maymin.member;
+package com.maymin.member.service;
+
+import com.maymin.member.Member;
+
 /* member정보를 모아서 이쁘게 뿌려줄거다 */
 public class MemberPrinter {
 	public void print(Member member) {

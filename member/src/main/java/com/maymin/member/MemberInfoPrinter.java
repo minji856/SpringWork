@@ -1,4 +1,7 @@
 package com.maymin.member;
+
+import com.maymin.member.service.MemberPrinter;
+
 /* 일종의 출력 service 역할
  * DB로 부터 가져온걸 사용자에게 잘 보여주는 클래스 */
 public class MemberInfoPrinter {

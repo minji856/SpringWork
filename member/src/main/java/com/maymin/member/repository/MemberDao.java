@@ -11,21 +11,24 @@ public class MemberDao {
 	
 	/* 한사람 조회기능 */
 	public Member selectByEmail(String email) {
-		return null;
+		return map.get(email);
 	}
 	/* 모든 사람 조회기능 */
-//	map 이여서 arraylist 못 쓴다
+	// map 이여서 arraylist 못 쓴다
 	public Collection<Member> selectAll(){
-		return null;
+		return map.values(); // 전체데이터 가져오는 메서드
 	}
 	
 	public void insert(Member member) {
 		member.setId(++nextId); // Id도 증가시켜서 들어갈 거다
-//		DB 대신에 저장하고 있는 작업
+		// DB 대신에 저장하고 있는 작업
 		map.put(member.getEmail(), member);
+		System.out.println("test:" + map);
 	}
 	
 	public void update(Member member) {
-		
+		// 이미 비밀번호가 바껴서 member에 들어가있는 상태다
+		map.put(member.getEmail(), member);
+		System.out.println("수정테스트 : " + member.getPassword());
 	}
 }
