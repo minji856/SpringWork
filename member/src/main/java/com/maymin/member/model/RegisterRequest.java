@@ -1,4 +1,4 @@
-package com.maymin.member;
+package com.maymin.member.model;
 /* DTO 입력받을때 잠시 보관해둘 */
 public class RegisterRequest {
 	private String email;

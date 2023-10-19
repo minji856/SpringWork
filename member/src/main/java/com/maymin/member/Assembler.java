@@ -1,5 +1,6 @@
 package com.maymin.member;
 
+import com.maymin.member.repository.MemberDao;
 import com.maymin.member.service.ChangePasswordService;
 import com.maymin.member.service.MemberRegisterService;
 

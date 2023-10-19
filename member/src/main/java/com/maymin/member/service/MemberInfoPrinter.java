@@ -1,6 +1,8 @@
-package com.maymin.member;
+package com.maymin.member.service;
 
-import com.maymin.member.service.MemberPrinter;
+import com.maymin.member.common.MemberPrinter;
+import com.maymin.member.model.Member;
+import com.maymin.member.repository.MemberDao;
 
 /* 일종의 출력 service 역할
  * DB로 부터 가져온걸 사용자에게 잘 보여주는 클래스 */

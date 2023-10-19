@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
+import com.maymin.member.model.RegisterRequest;
 import com.maymin.member.service.ChangePasswordService;
 import com.maymin.member.service.MemberRegisterService;
 

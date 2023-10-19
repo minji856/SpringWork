@@ -1,8 +1,10 @@
-package com.maymin.member;
+package com.maymin.member.repository;
 
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
+
+import com.maymin.member.model.Member;
 
 public class MemberDao {
 //	DB 대신에 map 쓸 것이다

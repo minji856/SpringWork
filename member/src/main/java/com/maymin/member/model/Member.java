@@ -1,4 +1,4 @@
-package com.maymin.member;
+package com.maymin.member.model;
 
 import java.util.Date;
 

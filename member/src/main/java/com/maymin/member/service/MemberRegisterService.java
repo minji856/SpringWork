@@ -2,9 +2,9 @@ package com.maymin.member.service;
 
 import java.util.Date;
 
-import com.maymin.member.Member;
-import com.maymin.member.MemberDao;
-import com.maymin.member.RegisterRequest;
+import com.maymin.member.model.Member;
+import com.maymin.member.model.RegisterRequest;
+import com.maymin.member.repository.MemberDao;
 
 public class MemberRegisterService {
 	private MemberDao memberDao;

@@ -1,7 +1,7 @@
 package com.maymin.member.service;
 
-import com.maymin.member.Member;
-import com.maymin.member.MemberDao;
+import com.maymin.member.model.Member;
+import com.maymin.member.repository.MemberDao;
 
 public class ChangePasswordService {
 	private MemberDao memberDao;
