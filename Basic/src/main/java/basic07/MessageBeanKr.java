@@ -23,5 +23,7 @@ public class MessageBeanKr implements MessageBean {
 			outputter.output("나의 이름은 " + name + "이고 나이는 " +
 					age + "살 입니다.");
 		} catch (IOException e) { e.printStackTrace() ;}
+		
+		System.out.println("MessageBeanKr : " + outputter.toString());
 	}
 }

@@ -21,5 +21,7 @@ public class MessageBeanEn implements MessageBean {
 			outputter.output("My name is " + name + " and my age is " +
 					age);
 		} catch (IOException e) { e.printStackTrace(); }
+		
+		System.out.println("MessageBeanEn : " + outputter.toString());
 	}
 }
