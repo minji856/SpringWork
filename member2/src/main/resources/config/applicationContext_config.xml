@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:context="http://www.springframework.org/schema/context"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        https://www.springframework.org/schema/context/spring-context.xsd" >
+   
+   <!-- 총 3개 생성으로 Assembler 필요 없어짐 -->
+   <bean id="memberDao" 
+   		class="com.maymin.member.repository.MemberDao" />
+  
+   <bean id="memberRegSvc" 
+  		 class="com.maymin.member.service.MemberRegisterService ">
+   		<constructor-arg ref="memberDao"></constructor-arg> <!-- 자동 주입 -->
+   </bean>
+  
+   <bean id="memberPwdSvc" 
+  		 class="com.maymin.member.service.ChangePasswordService">
+		<constructor-arg ref="memberDao"></constructor-arg> 
+   </bean>
+   
+   <bean id="memPrinter" class="com.maymin.member.common.MemberPrinter" />
+   
+   <bean id="infoPrinter" 
+  		 class="com.maymin.member.service.MemberInfoPrinter"> 
+  		 <property name="memDao" ref="memberDao"></property>
+  		 <property name="printer" ref="memPrinter"></property>
+   </bean>
+   
+   <bean id="listPrinter" 
+  		 class="com.maymin.member.service.MemberListPrinter"> 
+  		 <property name="memDao" ref="memberDao"></property>
+  		 <property name="printer" ref="memPrinter"></property>
+   </bean>
+   
+</beans>
