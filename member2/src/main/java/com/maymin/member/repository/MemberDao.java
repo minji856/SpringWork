@@ -4,8 +4,12 @@ import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
+
 import com.maymin.member.model.Member;
 
+@Repository
 public class MemberDao {
 	//	DB 대신에 map 쓸 것이다
 	private Map<String, Member> map = new HashMap<String, Member>();

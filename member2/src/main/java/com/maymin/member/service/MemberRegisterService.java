@@ -2,14 +2,19 @@ package com.maymin.member.service;
 
 import java.util.Date;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
 import com.maymin.member.model.Member;
 import com.maymin.member.model.RegisterRequest;
 import com.maymin.member.repository.MemberDao;
 
+@Service("memberRegSvc")
 public class MemberRegisterService {
 	private MemberDao memberDao;
 	
 	public MemberRegisterService() {} // 기본 생성자 생성
+	@Autowired
 	public MemberRegisterService(MemberDao memberDao) {
 		this.memberDao = memberDao;
 	}

@@ -1,19 +1,25 @@
 package com.maymin.member.service;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
 import com.maymin.member.common.MemberPrinter;
 import com.maymin.member.model.Member;
 import com.maymin.member.repository.MemberDao;
 
 /* 일종의 출력 service 역할
  * DB로 부터 가져온걸 사용자에게 잘 보여주는 클래스 */
+@Service("infoPrinter")
 public class MemberInfoPrinter {
 	private MemberDao memDao; //db클래스랑 연결
 	private MemberPrinter printer;
 	
+	@Autowired
 	public void setMemDao(MemberDao memDao) {
 		this.memDao = memDao;
 	}
-	public void setPrinter(MemberPrinter printer) {
+	// 같은 줄에 써도됨
+	@Autowired public void setPrinter(MemberPrinter printer) {
 		this.printer = printer;
 	}
 	public void printMemberInfo(String email) {

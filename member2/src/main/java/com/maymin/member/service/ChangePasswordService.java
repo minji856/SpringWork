@@ -1,12 +1,17 @@
 package com.maymin.member.service;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
 import com.maymin.member.model.Member;
 import com.maymin.member.repository.MemberDao;
 
+@Service("memberPwdSvc")
 public class ChangePasswordService {
 	private MemberDao memberDao;
 		
 	public ChangePasswordService() {}
+	@Autowired
 	public ChangePasswordService(MemberDao memberDao) {
 		this.memberDao = memberDao;
 	}
