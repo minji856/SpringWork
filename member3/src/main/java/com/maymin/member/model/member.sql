@@ -7,7 +7,10 @@ CREATE TABLE member(
 );
 
 drop table member;
-
+DROP SEQUENCE seq_id;
 CREATE SEQUENCE seq_id;
 
+select * from member;
+
 select * from MEMBER;
+COMMIT;
