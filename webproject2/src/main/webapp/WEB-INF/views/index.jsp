@@ -18,12 +18,17 @@
 		<input type="submit" value="전송"/><br>
 	</form>
 	
-	<br><br>
+	<br><br>	<!-- ModelAndView 이용 -->
 	<form method="get" action="/fourth">
-		<input type="text" name="name"/><br>
-		<input type="text" name="age"/><br>
+		<input type="text" name="name" /><br>
+		<input type="text" name="age" /><br>
 		<input type="text" name="point"/><br>
-		<input type="submit" value="전송"/><br>
+				<!-- dto로 묶여지지 않는 값 처리 -->
+		<input type="checkbox" name="chk" value="check"/>동의 여부<br>
+		<input type="submit" value="전송" /><br>
 	</form>
+	
+	<br><br>
+	<a href="/fifth">다섯번째 요청</a>
 </body>
 </html>

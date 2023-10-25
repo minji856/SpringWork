@@ -1,5 +1,10 @@
 package controller;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.stereotype.Controller;
@@ -61,16 +66,46 @@ public class SecondController {
 	*/
 	
 	@GetMapping("/fourth")		/* ModelAttribute는 가급적 생략하지 않기. 헷갈릴 수 있음 */
-	public ModelAndView fourthPage(@ModelAttribute User dto) {
+	public ModelAndView fourthPage(@ModelAttribute User dto, 
+			@RequestParam String chk) {
 		
 		/* 모델에 값 넣고 view 지정해주는것을 합져준 코드 */
 		ModelAndView mv = new ModelAndView("/WEB-INF/views/fourth.jsp");
 		mv.addObject("user", dto);
+		System.out.println("check : " + chk);
 		
 		return mv;
 	}
-	
-	public String fifthPage() {
-		return null;
+	@GetMapping("/fifth")
+	public ModelAndView fifthPage() {
+		List list = new ArrayList();
+		list.add("삼계탕");
+		list.add("반계탕");
+		list.add("추어탕");
+		list.add("갈비탕");
+		
+		/* 키도 문자열 값도 문자열 */
+		Map map = new HashMap<String, String>();
+		map.put("f1", "사과"); /* 키 값(f1,f2,f3)으로 출력 */
+		map.put("f2", "포도");
+		map.put("f3", "수박");
+		
+		/* map + list 더 복잡한 데이터 */
+		List listDay = new ArrayList<String>();
+		listDay.add("월요일");
+		listDay.add("화요일");
+		listDay.add("수요일");
+		listDay.add("목요일");
+		
+		/* {day : [월,화,수,목]} 키 하나에 값 여러개 */
+		Map mapDay = new HashMap<String, List>();
+		mapDay.put("day", listDay);
+		
+		ModelAndView mv = new ModelAndView("/WEB-INF/views/fifth.jsp");
+		mv.addObject("tang", list);
+		mv.addAllObjects(map); 	/* 모든것을 저장해주자 */
+		mv.addAllObjects(mapDay);
+				
+		return mv;
 	}
 }
