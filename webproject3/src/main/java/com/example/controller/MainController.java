@@ -7,7 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-/*
+/***
 public class MainController extends AbstractController{
 	@Override
 	protected ModelAndView handleRequestInternal(HttpServletRequest request, HttpServletResponse response)
@@ -15,7 +15,9 @@ public class MainController extends AbstractController{
 		return new ModelAndView("/WEB-INF/views/index.jsp");
 	}
 }
-*/
+***/
+
+/***
 @Controller
 public class MainController {
 	
@@ -25,3 +27,5 @@ public class MainController {
 		return new ModelAndView("index");
 	}
 }
+****/
+

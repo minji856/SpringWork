@@ -7,13 +7,6 @@
         https://www.springframework.org/schema/beans/spring-beans.xsd
         http://www.springframework.org/schema/context
         https://www.springframework.org/schema/context/spring-context.xsd" >
-   
- 						<!-- @Controller 있을 때 -->
-   		<context:component-scan base-package="com.example"></context:component-scan> 
-	        
-	    	<!-- @Controller을 해버리면 똑같은 요청이 생겨버리는거다 똑같은 경로면 분간이 안된다 -->
-	   	    <!-- <bean name="/" class="com.example.controller.MainController" /> -->
-    
     
     <!-- Handler Mapping -->
     <bean class="org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping" >
@@ -46,24 +39,5 @@
     <bean name="/first" class="com.example.controller.FirstController" /> 
     <bean name="/second" class="com.example.controller.SecondController" /> 
     <bean name="/third" class="com.example.controller.ThirdController" />
-    
-    
-    
-    <!-- View Resolver -->
-    
-    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-		<property name="viewClass">
-				<!-- JSP로 보여지게 하겠다 -->
-			<value>org.springframework.web.servlet.view.InternalResourceView</value>
-		</property>    	
-		
-		<property name="suffix">
-			<value>.jsp</value>
-		</property>
-		
-		<property name="prefix">
-			<value>/WEB-INF/views/</value>
-		</property>
-    </bean>
     
 </beans>
