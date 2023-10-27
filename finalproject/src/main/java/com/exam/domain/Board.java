@@ -8,6 +8,13 @@ public class Board {
 	private String bRegdate;
 	private int bViewcnt;
 	
+//	테스트코드를 위해 생성자 생성
+	public Board(String bTitle, String bContent, String bWriter) {
+		this.bTitle = bTitle;
+		this.bContent = bContent;
+		this.bWriter = bWriter;
+	}
+	
 	public int getbNo() {
 		return bNo;
 	}
