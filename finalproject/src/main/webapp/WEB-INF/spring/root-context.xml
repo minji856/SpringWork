@@ -10,8 +10,32 @@
         https://www.springframework.org/schema/context/spring-context.xsd
         http://www.springframework.org/schema/mvc 
 		http://www.springframework.org/schema/mvc/spring-mvc.xsd" >
-   
-   		<!-- 여기엔 DB설정이나 공통으로 쓰는 작업들을 하는게 좋음 Application Context-->
-   
- 	<context:component-scan base-package="com.exam"></context:component-scan>
+		
+		<!-- DB 관련 데이터 소스 -->
+	<bean id="hikariConfig" class="com.zaxxer.hikari.HikariConfig">
+    	<property name="driverClassName" value="oracle.jdbc.driver.OracleDriver" ></property>
+    	<property name="jdbcUrl" value="jdbc:oracle:thin:@localhost:1521:xe"></property>
+    	<property name="username" value="scott"></property>
+    	<property name="password" value="1111"></property>    
+    </bean>
+    
+    <bean id="dataSource" class="com.zaxxer.hikari.HikariDataSource">
+    	<constructor-arg ref="hikariConfig" />
+    </bean>
+    
+    
+    <bean id="sqlSessionFactory" 
+    		class="org.mybatis.spring.SqlSessionFactoryBean">
+    		<!-- db와 연결할수 있는 소스 id를 넘겨줘야해서 value 대신 ref -->
+    	<property name="dataSource" ref="dataSource" />
+    		<!-- 어디에있는지는 알려줘야 찾아간다. Psuedo -->
+    	<property name="configLocation" 
+    		value="classpath:/mybatis-config.xml"/>
+    	<property name="mapperLocations" 
+    		value="classpath:mappers/**/*-mapper.xml"/>
+    </bean>
+    
+    <bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate" destroy-method="clearCache">
+    	<constructor-arg name="sqlSessionFactory" ref="sqlSessionFactory" />
+    </bean>
 </beans>

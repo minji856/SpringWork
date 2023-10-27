@@ -42,7 +42,6 @@
 			<param-name>contextConfigLocation</param-name>
 			<param-value>
 				/WEB-INF/spring/appServlet/servlet-context.xml
-				/WEB-INF/spring/appServlet/resolver-config.xml
 			</param-value>
 		</init-param>
 	</servlet>
