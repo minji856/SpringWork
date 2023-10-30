@@ -6,5 +6,6 @@
   <configuration>
   		<typeAliases>
   			<typeAlias type="com.exam.domain.Board" alias="Board"/>
+  			<typeAlias type="com.exam.domain.RegisterRequest" alias="RegisterRequest"/>
   		</typeAliases>
   </configuration>
