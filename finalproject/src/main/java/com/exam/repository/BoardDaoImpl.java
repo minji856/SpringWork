@@ -18,27 +18,29 @@ public class BoardDaoImpl implements BoardDao {
 	
 	@Override
 	public List<Board> getList() throws Exception {
-		return null;
+//		mybatis에게 요청해서 db 데이터 꺼내오기
+		return sqlSession.selectList(NAMESPACE + ".getList");
 	}
 
 	@Override
-	public Board read(int bNO) throws Exception {
-		return null;
+	public Board read(int bNo) throws Exception {
+		return sqlSession.selectOne(NAMESPACE + ".read", bNo);
 	}
 
 	@Override
 	public int write(Board board) throws Exception {
+		/* mybatis에서 설정한 mapper의 sql문 */
 		return sqlSession.insert(NAMESPACE + ".write", board);
 	}
 
 	@Override
 	public int update(Board board) throws Exception {
-		return 0;
+		return sqlSession.update(NAMESPACE + ".update", board);
 	}
 
 	@Override
 	public int delete(int bNo) throws Exception {
-		return 0;
+		return sqlSession.delete(NAMESPACE + ".delete");
 	}
 
 }

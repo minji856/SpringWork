@@ -7,7 +7,7 @@ import com.exam.domain.Board;
 public interface BoardDao {
 	public List<Board> getList() throws Exception;
 
-	public Board read(int bNO) throws Exception;
+	public Board read(int bNo) throws Exception;
 
 	public int write(Board board) throws Exception;
 

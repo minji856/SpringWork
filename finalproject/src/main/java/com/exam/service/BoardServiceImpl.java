@@ -15,12 +15,15 @@ public class BoardServiceImpl implements BoardService {
 	
 	@Override
 	public List<Board> getList() throws Exception {
-		return null;
+//		DAO로 부터 데이터를 받아서 넘겨주기만 하면 된다
+		List<Board> list = boardDao.getList();
+		return list;
 	}
 
 	@Override
 	public Board read(int bNO) throws Exception {
-		return null;
+		Board board = boardDao.read(bNO);
+		return board;
 	}
 
 	@Override
@@ -32,7 +35,6 @@ public class BoardServiceImpl implements BoardService {
 
 	@Override
 	public void update(Board board) throws Exception {
-
 	}
 
 	@Override
