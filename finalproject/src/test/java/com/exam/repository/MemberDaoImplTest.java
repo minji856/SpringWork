@@ -1,5 +1,9 @@
 package com.exam.repository;
 
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertNull;
+
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,13 +18,19 @@ public class MemberDaoImplTest {
 	@Autowired
 	private MemberDao memberDao;
 	
-	@Test
+	@Ignore @Test
 	public void registerTest() throws Exception {
 		RegisterRequest regreq = new RegisterRequest();
-		regreq.setEmail("hong@test.com");
-		regreq.setName("홍길동");
+		regreq.setEmail("lim@test.com");
+		regreq.setName("임꺽정");
 		regreq.setPassword("1111");
 		
 		memberDao.registerMember(regreq);
+	}
+	
+	@Test /* Null 인지 아닌지 */
+	public void testSelectWithPass() throws Exception {
+		assertNotNull(memberDao.selectWithPass("hong@test.com", "1111"));
+		assertNull(memberDao.selectWithPass("hong@test.com", "2222"));
 	}
 }
