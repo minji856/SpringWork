@@ -25,3 +25,4 @@ CREATE SEQUENCE seq_id;
 --DROP sequence seq_id;
 
 SELECT * FROM simpleBoard;
+SELECT * FROM simplemember;

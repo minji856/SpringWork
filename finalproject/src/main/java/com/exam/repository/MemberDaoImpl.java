@@ -26,7 +26,11 @@ public class MemberDaoImpl implements MemberDao{
 
 	@Override
 	public Member selectWithPass(String email, String pw) throws Exception {
-		return null;
+		RegisterRequest rr = new RegisterRequest();
+		rr.setEmail(email);
+		rr.setPassword(pw);
+		
+		return sqlSession.selectOne(NAMESPACE + ".selectWithPass", rr);
 	}
 
 }

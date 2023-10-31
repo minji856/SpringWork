@@ -8,4 +8,11 @@
 		INSERT INTO simpleMember(id, name, email, password, regdate)
 		VALUES (seq_id.nextVal, #{name}, #{email}, #{password}, sysdate)
 	</insert>
+	
+	<!-- member를 쓰던 regitsterRequest를 쓰던 상관은 없다. 별명을 만들어놔서 간단하게 씀 -->
+	<select id="selectWithPass" parameterType="RegisterRequest"
+		resultType="Member">
+		SELECT * FROM simpleMember
+		WHERE email = #{email} and password = #{password}
+	</select>
 </mapper>

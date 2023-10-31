@@ -22,8 +22,9 @@ public class MemberServiceImpl implements MemberService {
 		return null;
 	}
 
-	@Override
+	@Override /* boolean으로 받아도됨 */
 	public Member selectWithPass(String email, String pw) throws Exception {
-		return null;
+		Member member = memberDao.selectWithPass(email, pw);
+		return member;
 	}
 }
