@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<!--타임리프 설계도 추가-->
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1>컨텐츠 데이터 출력하기</h1>
+	<hr/>
+	
+	Escape 처리 <br>
+	<ul>
+		<!--Spring에도 EL이 있다-->
+		<li><span th:text="${data}"></span></li>
+		<li>[[${data}]]</li>
+	</ul>
+	
+	<hr/>
+	
+	Unescape 처리<br>
+	<ul>
+		<!--utext : \ 역할-->
+		<li><span th:utext="${data2}"></span></li>
+		<li>[(${data2})]</li>
+	</ul>
+	
+	<hr/>
+	
+	<!--타임리프로 된 페이지니까 대괄호가 안나온다-->
+	[[...]] 과 [(...)]
+	<!--이 태그안에서는 타임리프가 해석하지 말라는 옵션-->
+	<span th:inline="none">[[...]] 과 [(...)]</span>
+</body>
+</html>

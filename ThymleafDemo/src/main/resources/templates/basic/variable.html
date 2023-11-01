@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1>Spring EL</h1>
+	<hr/>
+	
+	<ul>Object
+		<!--Lombok으로 getter 만들어 주니까 출력 됨-->
+		<li>[[${user.getUserName()}]]</li>
+		
+		<!--프로퍼티규칙에 의해서-->
+		<li>[[${user.userName}]]</li>
+		<li>[[${user['userName']}]]</li>
+	</ul>
+	<hr/>
+	
+	<ul>List
+		<li>[[${users[0].getUserName()}]]</li>
+		<li>[[${users[0].userName}]]</li>
+		<li>[[${users[0]['userName']}]]</li>
+	</ul>
+	
+	<ul>Map
+		<li>[[${userMap['userA'].getUserName()}]]</li>
+		<li>[[${userMap['userA'].userName}]]</li>
+		<li>[[${userMap['userA']['userName']}]]</li>
+	</ul>
+	
+</body>
+</html>
