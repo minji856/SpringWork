@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+</head>
+<body>
+	<h1>반복 처리</h1>
+	<table border="1">
+		<tr>
+			<th>이름</th>
+			<th>나이</th>
+		</tr>
+		<tr th:each="user : ${users}">
+			<td th:text="${user.userName}">데이터 없음</td>
+			<td th:text="${user.age}">0</td>
+		</tr>
+	</table>
+	
+	<hr>
+	<table border="1">
+		<tr>
+			<th>번호</th>
+			<th>이름</th>
+			<th>나이</th>
+		</tr>
+		<tr th:each="user, uState : ${users}"  th:object="${user}">
+			
+			<!--userStat 반복객체의 정보를 가져올 수 있다 지금은 uState-->
+			<td th:text="${uState.count}"></td> 
+			
+			<!--<td th:text="${user.userName}">데이터없음</td>-->
+			<td th:text="*{userName}">데이터없음</td>
+			
+			<!--<td th:text="${user.age}">0</td>-->
+			<td th:text="*{age}">0</td>
+		</tr>
+	</table>
+	
+	<hr>
+	
+	<table border="1">
+		<tr>
+			<th>이름</th>
+			<th>나이</th>
+			<th>정보</th>
+		</tr>
+		<tr th:each="user : ${users}">
+			<td th:text="${user.userName}">데이터 없음</td>
+			<td th:text="${user.age}">0</td>
+			<td>
+				index = [[${userStat.index}]]
+				count= [[${userStat.count}]]
+				size = [[${userStat.size}]]
+				even?= [[${userStat.even}]]
+				odd?= [[${userStat.odd}]]
+				first?= [[${userStat.first}]]
+				last?= [[${userStat.last}]]
+				current= [[${userStat.current}]]
+			</td>
+		</tr>
+	</table>
+</body>
+</html>
