@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<!-- head 가 필요가 없다 -->
+<body>
+	<footer th:fragment="copy">
+		여기는 footer 자리입니다.
+	</footer>
+	<!--마치 함수-->
+	<footer th:fragment="copyParam(param1, param2)">
+		<p>여기는 파라미터 자리입니다.</p>
+		<p th:text="${param1}"></p>
+		<p th:text="${param2}"></p>
+	</footer>	
+	
+</body>
+</html>

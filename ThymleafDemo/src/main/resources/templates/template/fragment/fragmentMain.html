@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+</head>
+<body>
+	<h1>부분 포함</h1>
+	<hr>
+	
+	<h2>insert방식 포함</h2>
+	<!--이름 그대로 템플릿 조각을 넣겠다-->
+	<!--<div th:insert="~{template/fragment/footer :: copy}"></div>-->
+	<div th:insert="template/fragment/footer :: copy"></div>
+	
+	<h2>replace방식 포함</h2>
+	<div th:replace="~{template/fragment/footer :: copy}"></div>
+
+	<h2>파라미터 포함</h2>
+	<div th:replace="~{template/fragment/footer :: copyParam('데이터1', '데이터2')}"></div>
+</body>
+</html>
