@@ -42,8 +42,9 @@ public class MemberController {
 		}
 	}
 	
-	@GetMapping("updatie")
+	@GetMapping("update")
 	public String update(Member mem) {
+		dao.updateData(mem);
 		return "update";
 	}
 }

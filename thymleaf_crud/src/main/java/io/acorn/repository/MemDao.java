@@ -25,4 +25,12 @@ public class MemDao {
 		else
 			return false;
 	}
+	// 미완성
+	public int updateData(Member mem) {
+		return dataInterface.updateData(mem);
+	}
+	
+	public boolean deleteData(Member mem) {
+		return true;
+	}
 }
