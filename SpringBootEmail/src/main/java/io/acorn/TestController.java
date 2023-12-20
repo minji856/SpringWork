@@ -1,6 +1,7 @@
 package io.acorn;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -11,6 +12,8 @@ import lombok.RequiredArgsConstructor;
 
 @Controller
 @RequiredArgsConstructor
+// @CrossOrigin("*") 보안이 걱정되면 특정 도메인만 지정 가능
+@CrossOrigin(origins = "http://localhost:3000")
 public class TestController {
 	// 값을 제대로 받는지 확인하기 위해 final 추가
 	private final MailService mailService;
