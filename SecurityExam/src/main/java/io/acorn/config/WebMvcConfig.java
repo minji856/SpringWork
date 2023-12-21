@@ -7,6 +7,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 /**
  * 확장자가 Mustache로 되어있어서 config 로 기본 설정 변경
+ * 일반적인 web 설정파일
  */
 @Configuration
 public class WebMvcConfig implements WebMvcConfigurer{
