@@ -1,11 +1,13 @@
 package io.acorn.controller;
 
+import org.springframework.security.core.Authentication;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import io.acorn.auth.PrincipalDetails;
 import io.acorn.model.Users;
 import io.acorn.repository.UsersRepository;
 import lombok.RequiredArgsConstructor;
@@ -40,9 +42,13 @@ public class IndexController {
 		return "manager";
 	}
 	
+	@GetMapping("/joinForm")
+	public String joinForm() {
+		return "joinForm";
+	}
+	
 	@PostMapping("/join")
 	public String join(Users user) {
-		System.out.println("user : " + user);
 		user.setRole("ROLE_USER");
 		
 		String rawPassword = user.getPassword();
@@ -59,12 +65,7 @@ public class IndexController {
 	@GetMapping("/joinProc")
 	@ResponseBody
 	public String joinProc() {
-		return "회원가입 완료됨";
-	}
-	
-	@GetMapping("/joinForm")
-	public String joinForm() {
-		return "joinForm";
+		return "인증된 사람만 올 수 있는곳";
 	}
 	
 	@GetMapping("/loginForm")
@@ -74,6 +75,18 @@ public class IndexController {
 	
 	@PostMapping("/login")
 	public String login(){
+		System.out.println("login");
 		return "redirect:/";
+	}
+	
+	@GetMapping("/test/login")
+	@ResponseBody
+	public String testLogin(Authentication auth) {
+		System.out.println("/test/login =======================");
+		// System.out.println("Authentication : " + auth.getPrincipal());
+		PrincipalDetails principalDetails = (PrincipalDetails)auth.getPrincipal(); // 부모는 자식에게 참조 할수 없어서 다운 캐스팅
+		// 권한만 꺼내 올수도 있고 정보들을 꺼내올 수 있다
+		System.out.println("Authentication : " + principalDetails.getUser());
+		return "세션 정보 확인하기";
 	}
 }

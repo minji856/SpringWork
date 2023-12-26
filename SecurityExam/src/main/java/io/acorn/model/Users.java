@@ -21,4 +21,6 @@ public class Users {
 	private String email;
 	private String role;
 	private Timestamp createDate;
+	private String provider;
+	private String providerId;
 }
